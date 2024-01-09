@@ -59,6 +59,7 @@ class PopularDestinationCollectionViewController: UIViewController {
         layout.scrollDirection = .vertical
         
         popularDestCollectionView.collectionViewLayout = layout
+        popularDestCollectionView.backgroundColor = .white
     }
 }
 
@@ -74,7 +75,7 @@ extension PopularDestinationCollectionViewController: UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularDestinationCVC" , for: indexPath) as! PopularDestinationCollectionViewCell
-        
+
         cell.backgroundColor = .white
         
         let url = URL(string: cities[indexPath.item].city_image)
@@ -82,22 +83,14 @@ extension PopularDestinationCollectionViewController: UICollectionViewDelegate, 
         cell.imageView.contentMode = .scaleAspectFill
         cell.imageView.layer.cornerRadius = 80
         
-        cell.cityNameLabel.text = cities[indexPath.item].city_name
+        cell.cityNameLabel.text = "\(cities[indexPath.item].city_name) | \(cities[indexPath.item].city_english_name)"
         cell.cityNameLabel.textColor = .black
         cell.cityNameLabel.font = .boldSystemFont(ofSize: 16)
-        
-        cell.cityEngNameLabel.text = cities[indexPath.item].city_english_name
-        cell.cityEngNameLabel.textColor = .black
-        cell.cityEngNameLabel.font = .boldSystemFont(ofSize: 16)
     
         cell.cityExplainLabel.text = cities[indexPath.item].city_explain
         cell.cityExplainLabel.textColor = .gray
         cell.cityExplainLabel.font = .systemFont(ofSize: 14)
         cell.cityExplainLabel.numberOfLines = 2
-        
-        cell.borderLabel.text = "|"
-        cell.borderLabel.textColor = .black
-        cell.borderLabel.font = .boldSystemFont(ofSize: 16)
         
         return cell
     }
