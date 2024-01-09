@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Popular Destination Collection View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="PopularDestinationCollectionViewController" customModule="PopularTravelDestination" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7H-KV-WAe">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="120"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ellipsis" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SQS-V7-oCt">
+                                        <rect key="frame" x="176.66666666666666" y="57.666666666666664" width="40" height="9.9999999999999929"/>
+                                        <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="EHR-Gc-3us"/>
+                                            <constraint firstAttribute="width" constant="40" id="Fs2-Zc-X4S"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인기 도시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIN-bD-hSe">
+                                        <rect key="frame" x="165" y="90" width="63" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-a0-a9X">
+                                        <rect key="frame" x="0.0" y="119" width="393" height="1"/>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="GSd-YR-e7D"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="LBL-a0-a9X" secondAttribute="trailing" id="7QA-uM-rUN"/>
+                                    <constraint firstAttribute="bottom" secondItem="LBL-a0-a9X" secondAttribute="bottom" id="GlM-RI-B9j"/>
+                                    <constraint firstItem="SQS-V7-oCt" firstAttribute="centerX" secondItem="d7H-KV-WAe" secondAttribute="centerX" id="NB7-Iw-zxu"/>
+                                    <constraint firstItem="SQS-V7-oCt" firstAttribute="top" secondItem="d7H-KV-WAe" secondAttribute="top" constant="50" id="O3O-Dp-HUF"/>
+                                    <constraint firstItem="lIN-bD-hSe" firstAttribute="top" secondItem="SQS-V7-oCt" secondAttribute="bottom" constant="15" id="PjS-Iv-AUv"/>
+                                    <constraint firstItem="LBL-a0-a9X" firstAttribute="leading" secondItem="d7H-KV-WAe" secondAttribute="leading" id="SOy-Jh-Lti"/>
+                                    <constraint firstItem="lIN-bD-hSe" firstAttribute="centerX" secondItem="d7H-KV-WAe" secondAttribute="centerX" id="cHy-e9-Wws"/>
+                                    <constraint firstAttribute="height" constant="120" id="zvx-fk-j1M"/>
+                                </constraints>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wsg-x0-9Fz">
+                                <rect key="frame" x="20" y="135" width="353" height="32"/>
+                                <segments>
+                                    <segment title="모두"/>
+                                    <segment title="국내"/>
+                                    <segment title="해외"/>
+                                </segments>
+                            </segmentedControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BSI-JH-pkc">
+                                <rect key="frame" x="0.0" y="181" width="393" height="671"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yAo-Ng-g79">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nx3-o3-Irn">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rbb-Me-m2n">
+                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BSI-JH-pkc" firstAttribute="top" secondItem="wsg-x0-9Fz" secondAttribute="bottom" constant="15" id="6Hw-Nd-ux0"/>
+                            <constraint firstItem="d7H-KV-WAe" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="773-u3-fvy"/>
+                            <constraint firstItem="wsg-x0-9Fz" firstAttribute="top" secondItem="d7H-KV-WAe" secondAttribute="bottom" constant="15" id="BIS-i1-sMs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wsg-x0-9Fz" secondAttribute="trailing" constant="20" id="U77-Zd-7sV"/>
+                            <constraint firstItem="d7H-KV-WAe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Umd-QQ-6yQ"/>
+                            <constraint firstItem="wsg-x0-9Fz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="dKh-5E-00e"/>
+                            <constraint firstItem="d7H-KV-WAe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fI2-Gi-rkb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BSI-JH-pkc" secondAttribute="trailing" id="hqq-DE-2Nb"/>
+                            <constraint firstItem="BSI-JH-pkc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="o6r-BW-gx2"/>
+                            <constraint firstAttribute="bottom" secondItem="BSI-JH-pkc" secondAttribute="bottom" id="pR2-9x-AqQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="popularDestCollectionView" destination="BSI-JH-pkc" id="qUH-DM-f67"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
