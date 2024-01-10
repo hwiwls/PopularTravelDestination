@@ -7,7 +7,15 @@
 
 import UIKit
 
-class PopularDestinationCollectionViewCell: UICollectionViewCell {
+// 프로토콜 프로퍼티
+protocol CollectionViewCellProtocol {
+    var identifier: String { get set }
+}
+
+class PopularDestinationCollectionViewCell: UICollectionViewCell, CollectionViewCellProtocol {
+    
+    var identifier: String = "PopularDestinationCVC"
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cityExplainLabel: UILabel!
     @IBOutlet weak var cityNameLabel: UILabel!
