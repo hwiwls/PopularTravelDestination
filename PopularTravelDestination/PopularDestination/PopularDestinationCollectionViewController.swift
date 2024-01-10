@@ -16,8 +16,30 @@ struct City {
     var domestic_travel: Bool
 }
 
-class PopularDestinationCollectionViewController: UIViewController {
- 
+class PopularDestinationCollectionViewController: UIViewController, UIConfiguration {
+    // protocol 적용
+    func configureView() {
+        view.backgroundColor = .white
+        
+        let xib = UINib(nibName: "PopularDestinationCollectionViewCell", bundle: nil) // 실제 파일 이름을 적어주어야 한다.
+        popularDestCollectionView.register(xib, forCellWithReuseIdentifier: "PopularDestinationCVC")
+        
+        popularDestCollectionView.delegate = self
+        popularDestCollectionView.dataSource = self
+        
+        let layout = UICollectionViewFlowLayout()   // 여러행, 여러열
+        let spacing: CGFloat = 20
+        let cellWidth = UIScreen.main.bounds.width - spacing * 3
+        layout.itemSize = CGSize(width: cellWidth / 2, height: cellWidth / 2 + 70)
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
+        layout.scrollDirection = .vertical
+        
+        popularDestCollectionView.collectionViewLayout = layout
+        popularDestCollectionView.backgroundColor = .white
+    }
+    
     
     let cities: [City] = [
         City(city_name: "방콕", city_english_name: "Bangkok", city_explain: "방콕, 파타야, 후아힌, 코사멧, 코사무이", city_image: "https://i.namu.wiki/i/OUKHuXT-QXe-wDgGE_9hMfEW9Sb3lyMWl0SSbpTQyfl0Lw3rs_A_DuVyXBNXTFG3FUkfmy7hBjL68dgLzssEQg.webp", domestic_travel: false),
@@ -41,28 +63,14 @@ class PopularDestinationCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        
-        let xib = UINib(nibName: "PopularDestinationCollectionViewCell", bundle: nil) // 실제 파일 이름을 적어주어야 한다.
-        popularDestCollectionView.register(xib, forCellWithReuseIdentifier: "PopularDestinationCVC")
+        configureView()
         
         popularDestCollectionView.delegate = self
         popularDestCollectionView.dataSource = self
-        
-        let layout = UICollectionViewFlowLayout()   // 여러행, 여러열
-        let spacing: CGFloat = 20
-        let cellWidth = UIScreen.main.bounds.width - spacing * 3
-        layout.itemSize = CGSize(width: cellWidth / 2, height: cellWidth / 2 + 70)
-        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
-        layout.minimumLineSpacing = spacing
-        layout.minimumInteritemSpacing = spacing
-        layout.scrollDirection = .vertical
-        
-        popularDestCollectionView.collectionViewLayout = layout
-        popularDestCollectionView.backgroundColor = .white
     }
 }
 
+// extension 적용
 extension PopularDestinationCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         cities.count

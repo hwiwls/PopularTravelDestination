@@ -16,6 +16,7 @@
 		2E01B8F32B4D947600046A96 /* PopularDestinationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01B8F12B4D947600046A96 /* PopularDestinationCollectionViewCell.swift */; };
 		2E01B8F42B4D947600046A96 /* PopularDestinationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E01B8F22B4D947600046A96 /* PopularDestinationCollectionViewCell.xib */; };
 		2E01B8F72B4DA0D900046A96 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2E01B8F62B4DA0D900046A96 /* Kingfisher */; };
+		2EF789922B4EE5490009CB5D /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF789912B4EE5490009CB5D /* Protocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		2E01B8EF2B4D946A00046A96 /* PopularDestinationCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularDestinationCollectionViewController.swift; sourceTree = "<group>"; };
 		2E01B8F12B4D947600046A96 /* PopularDestinationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularDestinationCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E01B8F22B4D947600046A96 /* PopularDestinationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularDestinationCollectionViewCell.xib; sourceTree = "<group>"; };
+		2EF789912B4EE5490009CB5D /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				2E01B8EF2B4D946A00046A96 /* PopularDestinationCollectionViewController.swift */,
 				2E01B8F12B4D947600046A96 /* PopularDestinationCollectionViewCell.swift */,
 				2E01B8F22B4D947600046A96 /* PopularDestinationCollectionViewCell.xib */,
+				2EF789912B4EE5490009CB5D /* Protocol.swift */,
 			);
 			path = PopularDestination;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				2E01B8F32B4D947600046A96 /* PopularDestinationCollectionViewCell.swift in Sources */,
 				2E01B8DB2B4D907600046A96 /* AppDelegate.swift in Sources */,
 				2E01B8DD2B4D907600046A96 /* SceneDelegate.swift in Sources */,
+				2EF789922B4EE5490009CB5D /* Protocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
