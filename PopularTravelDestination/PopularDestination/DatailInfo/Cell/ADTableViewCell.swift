@@ -8,7 +8,10 @@
 import UIKit
 
 class ADTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var adCopyLabel: UILabel!
+    @IBOutlet weak var adSymbolLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
