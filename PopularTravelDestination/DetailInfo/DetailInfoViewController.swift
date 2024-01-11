@@ -231,7 +231,26 @@ extension DetailInfoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if travel[indexPath.row].ad == false {
+            let sb = UIStoryboard(name: "TouristAttraction", bundle: nil)
+            
+            let vc = sb.instantiateViewController(withIdentifier: "TouristAttractionViewController") as! TouristAttractionViewController
+            
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let sb = UIStoryboard(name: "Advertise", bundle: nil)
+            
+            let vc = sb.instantiateViewController(withIdentifier: "AdvertiseViewController") as! AdvertiseViewController
+            
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            
+            present(nav, animated: true)
+        }
+        
+        
         tableView.reloadRows(at: [indexPath], with: .fade)
     }
-    
+
 }
