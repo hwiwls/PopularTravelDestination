@@ -11,6 +11,8 @@ class ADTableViewCell: UITableViewCell {
     
     @IBOutlet weak var adCopyLabel: UILabel!
     @IBOutlet weak var adSymbolLabel: UILabel!
+    @IBOutlet weak var backgroundColorView: UIView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

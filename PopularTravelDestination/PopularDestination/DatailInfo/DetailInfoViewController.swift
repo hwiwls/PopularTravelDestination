@@ -170,8 +170,8 @@ extension DetailInfoViewController: UITableViewDelegate, UITableViewDataSource {
             cell.titleLabel.font = .boldSystemFont(ofSize: 16)
             
             cell.descriptionLabel.text = travel[indexPath.row].description
-            cell.descriptionLabel.textColor = .black
-            cell.descriptionLabel.font = .systemFont(ofSize: 14)
+            cell.descriptionLabel.textColor = .darkGray
+            cell.descriptionLabel.font = .systemFont(ofSize: 13)
             
             guard let travelImage = travel[indexPath.row].travel_image else {
                 // 빈 셀 리턴해야해서??
@@ -190,21 +190,32 @@ extension DetailInfoViewController: UITableViewDelegate, UITableViewDataSource {
             cell.saveLabel.textColor = .lightGray
             cell.saveLabel.font = .systemFont(ofSize: 12)
             
+            cell.selectionStyle = .none
+            
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ADTableViewCell", for: indexPath) as! ADTableViewCell
-            
-            cell.backgroundColor = UIColor(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1), alpha: 1)
 
+            cell.backgroundColor = .white
+            
+            cell.backgroundColorView.backgroundColor = UIColor(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1), alpha: 1)
+            cell.backgroundColorView.clipsToBounds = true
+            cell.backgroundColorView.layer.cornerRadius = 10
+            
             cell.adCopyLabel.text = "초 초 초특가!!!!!\n지금 당장 서둘러 예매하세용"
             cell.adCopyLabel.textColor = .black
             cell.adCopyLabel.font = .boldSystemFont(ofSize: 16)
             cell.adCopyLabel.textAlignment = .center
+            cell.adCopyLabel.numberOfLines = 0
             
             cell.adSymbolLabel.text = "ad"
-            cell.adCopyLabel.textColor = .black
-            cell.adCopyLabel.backgroundColor = .white
-            cell.layer.cornerRadius = 5
+            cell.adSymbolLabel.textColor = .black
+            cell.adSymbolLabel.backgroundColor = .white
+            cell.adSymbolLabel.textAlignment = .center
+            cell.adSymbolLabel.clipsToBounds = true
+            cell.adSymbolLabel.layer.cornerRadius = 5
+            
+            cell.selectionStyle = .none
             
             return cell
         }
@@ -212,7 +223,7 @@ extension DetailInfoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if travel[indexPath.row].ad == false {
-            return 130
+            return 140
         } else {
             return 80
         }

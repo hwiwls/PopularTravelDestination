@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,6 +17,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i99-b5-iei">
+                        <rect key="frame" x="16" y="0.0" width="288" height="65"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwc-XQ-NvN">
                         <rect key="frame" x="139" y="22" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -23,7 +28,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qf7-ES-V6T">
-                        <rect key="frame" x="288" y="2" width="30" height="15"/>
+                        <rect key="frame" x="270" y="4" width="30" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="8F4-z4-Wjd"/>
                             <constraint firstAttribute="width" constant="30" id="dwg-gQ-LUh"/>
@@ -35,17 +40,27 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="jwc-XQ-NvN" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="0BP-S5-Z63"/>
+                    <constraint firstAttribute="bottom" secondItem="i99-b5-iei" secondAttribute="bottom" id="Mio-4h-bcR"/>
+                    <constraint firstItem="i99-b5-iei" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="WVc-hq-aiX"/>
                     <constraint firstItem="jwc-XQ-NvN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="WeX-xF-dq5"/>
-                    <constraint firstItem="Qf7-ES-V6T" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="ahS-xC-oNa"/>
-                    <constraint firstAttribute="trailing" secondItem="Qf7-ES-V6T" secondAttribute="trailing" constant="2" id="npL-Qh-4KL"/>
+                    <constraint firstAttribute="trailing" secondItem="i99-b5-iei" secondAttribute="trailing" constant="16" id="Z4K-IJ-96W"/>
+                    <constraint firstItem="Qf7-ES-V6T" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="ahS-xC-oNa"/>
+                    <constraint firstItem="i99-b5-iei" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="fdF-Ub-coN"/>
+                    <constraint firstItem="i99-b5-iei" firstAttribute="trailing" secondItem="Qf7-ES-V6T" secondAttribute="trailing" constant="4" id="npL-Qh-4KL"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="adCopyLabel" destination="jwc-XQ-NvN" id="VOj-MV-pVQ"/>
                 <outlet property="adSymbolLabel" destination="Qf7-ES-V6T" id="k9G-qu-tVO"/>
+                <outlet property="backgroundColorView" destination="i99-b5-iei" id="KY1-yV-n6v"/>
             </connections>
             <point key="canvasLocation" x="74.809160305343511" y="27.112676056338028"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
