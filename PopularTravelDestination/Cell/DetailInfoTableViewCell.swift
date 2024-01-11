@@ -12,6 +12,7 @@ class DetailInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var travelImageView: UIImageView!
+    @IBOutlet weak var gradeLabel: UILabel!
     @IBOutlet weak var saveLabel: UILabel!
     @IBOutlet weak var likeBtn: UIButton!
     

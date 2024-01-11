@@ -45,7 +45,16 @@
                         <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xr-SG-b7K">
-                        <rect key="frame" x="16" y="80" width="42" height="21"/>
+                        <rect key="frame" x="73" y="80" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djj-Po-WEl">
+                        <rect key="frame" x="16" y="80" width="45" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="O7G-1a-q3V"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -54,16 +63,18 @@
                 <constraints>
                     <constraint firstItem="9rC-s6-l61" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.24" id="02l-oh-Xbv"/>
                     <constraint firstItem="cxH-iW-V0y" firstAttribute="top" secondItem="9rC-s6-l61" secondAttribute="top" constant="4" id="2yX-Pj-oT7"/>
-                    <constraint firstItem="5Xr-SG-b7K" firstAttribute="top" secondItem="2so-qS-KkG" secondAttribute="bottom" constant="4" id="5AV-Z4-he0"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2so-qS-KkG" secondAttribute="bottom" constant="50" id="7p0-Gy-tqJ"/>
+                    <constraint firstItem="5Xr-SG-b7K" firstAttribute="leading" secondItem="djj-Po-WEl" secondAttribute="trailing" constant="12" id="977-Xt-FB0"/>
+                    <constraint firstItem="djj-Po-WEl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Cru-wH-btt"/>
                     <constraint firstItem="9rC-s6-l61" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Glt-0Y-bLm"/>
-                    <constraint firstItem="5Xr-SG-b7K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="IBL-pJ-CSW"/>
                     <constraint firstAttribute="trailing" secondItem="9rC-s6-l61" secondAttribute="trailing" constant="16" id="VyA-ST-UCB"/>
                     <constraint firstItem="9rC-s6-l61" firstAttribute="leading" secondItem="2so-qS-KkG" secondAttribute="trailing" constant="16" id="X73-pO-DUy"/>
                     <constraint firstItem="WZp-mk-tzX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="aYO-gE-2xb"/>
                     <constraint firstItem="2so-qS-KkG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="d2H-aa-nVC"/>
                     <constraint firstItem="9rC-s6-l61" firstAttribute="leading" secondItem="WZp-mk-tzX" secondAttribute="trailing" constant="16" id="eMn-Wb-9nj"/>
                     <constraint firstItem="WZp-mk-tzX" firstAttribute="top" secondItem="9rC-s6-l61" secondAttribute="top" constant="-4" id="eNR-lE-qDo"/>
+                    <constraint firstItem="djj-Po-WEl" firstAttribute="top" secondItem="2so-qS-KkG" secondAttribute="bottom" constant="4" id="ejT-5d-Smd"/>
+                    <constraint firstItem="5Xr-SG-b7K" firstAttribute="top" secondItem="2so-qS-KkG" secondAttribute="bottom" constant="4" id="fTW-s6-DPa"/>
                     <constraint firstItem="9rC-s6-l61" firstAttribute="trailing" secondItem="cxH-iW-V0y" secondAttribute="trailing" constant="4" id="jC3-st-JGA"/>
                     <constraint firstItem="2so-qS-KkG" firstAttribute="top" secondItem="WZp-mk-tzX" secondAttribute="bottom" constant="4" id="jsN-kz-QTW"/>
                 </constraints>
@@ -71,6 +82,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="descriptionLabel" destination="2so-qS-KkG" id="EjM-wt-D6M"/>
+                <outlet property="gradeLabel" destination="djj-Po-WEl" id="rC2-BA-WT1"/>
                 <outlet property="likeBtn" destination="cxH-iW-V0y" id="mmR-Ea-6bv"/>
                 <outlet property="saveLabel" destination="5Xr-SG-b7K" id="4uO-0u-tRN"/>
                 <outlet property="titleLabel" destination="WZp-mk-tzX" id="wpy-Es-ElF"/>

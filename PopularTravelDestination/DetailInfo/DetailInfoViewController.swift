@@ -185,6 +185,14 @@ extension DetailInfoViewController: UITableViewDelegate, UITableViewDataSource {
             cell.saveLabel.textColor = .lightGray
             cell.saveLabel.font = .systemFont(ofSize: 12)
             
+            if let grade = travel[indexPath.row].grade {
+                cell.gradeLabel.text = "평점 \(String(grade))"
+            } else {
+                cell.gradeLabel.text = "평점 0"
+            }
+            cell.gradeLabel.textColor = .lightGray
+            cell.gradeLabel.font = .systemFont(ofSize: 12)
+            
             // like 버튼
             let likeImage = travel[indexPath.row].like == false ? "heart" : "heart.fill"
             cell.likeBtn.setImage(UIImage(systemName: likeImage)?.withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
