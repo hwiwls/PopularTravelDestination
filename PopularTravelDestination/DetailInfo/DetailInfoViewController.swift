@@ -21,7 +21,7 @@ class DetailInfoViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let travel: [Travel] = [
+    var travel: [Travel] = [
         Travel(title: "하나우마 베이",
                description: "아름다운 자연을 감상할 수 있는 스노쿨링 명소",
                travel_image: "https://i.namu.wiki/i/sjSC1PqQU2NHmqbNLaxTX2Xjv3ECYheHBXExDxRamD_6pAqrHzON38uux4NPc0VPH_ABevlB5kDanGj-CeTiYHPGn6qVd7JvMGE6rFc-7_pJhYeSdOQO6L44SS2bfknDzvmXFtQxkjzy7wXEM40JRQ.webp",
@@ -137,24 +137,14 @@ class DetailInfoViewController: UIViewController {
         configView()
         configTableView()
     }
-    
-    func configTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        let xib = UINib(nibName: "DetailInfoTableViewCell", bundle: nil)
-        tableView.register(xib, forCellReuseIdentifier: "DetailInfoTableViewCell")
-        
-        let xib2 = UINib(nibName: "ADTableViewCell", bundle: nil)
-        tableView.register(xib2, forCellReuseIdentifier: "ADTableViewCell")
-    }
-    
+}
+
+extension DetailInfoViewController {
     func configView() {
         navigationItem.title = "도시 상세 정보"
     }
- 
-
 }
+
 
 extension DetailInfoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -174,22 +164,33 @@ extension DetailInfoViewController: UITableViewDelegate, UITableViewDataSource {
             cell.descriptionLabel.textColor = .darkGray
             cell.descriptionLabel.font = .systemFont(ofSize: 13)
             
+            // 여행지 사진
             guard let travelImage = travel[indexPath.row].travel_image else {
                 // 빈 셀 리턴해야해서??
                 return UITableViewCell()
             }
+            
             let url = URL(string: travelImage)
             cell.travelImageView.kf.setImage(with: url)
             cell.travelImageView.contentMode = .scaleAspectFill
             cell.travelImageView.clipsToBounds = true
             
-            
+            // 저장 레이블
             // save가 Int형이라 옵셔널 바인딩
             if let save = travel[indexPath.row].save {
                 cell.saveLabel.text = "저장 \(String(save))"
+            } else {
+                cell.saveLabel.text = "저장 0"
             }
             cell.saveLabel.textColor = .lightGray
             cell.saveLabel.font = .systemFont(ofSize: 12)
+            
+            // like 버튼
+            let likeImage = travel[indexPath.row].like == false ? "heart" : "heart.fill"
+            cell.likeBtn.setImage(UIImage(systemName: likeImage)?.withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
+            
+            cell.likeBtn.tag = indexPath.row
+            cell.likeBtn.addTarget(self, action: #selector(likeBtnClicked), for: .touchUpInside)
             
             cell.selectionStyle = .none
             
@@ -222,6 +223,15 @@ extension DetailInfoViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    @objc func likeBtnClicked(sender: UIButton) {
+        if travel[sender.tag].like != nil {
+            travel[sender.tag].like!.toggle()
+        } else {
+            travel[sender.tag].like = false
+        }
+        tableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if travel[indexPath.row].ad == false {
             return 140
@@ -231,7 +241,6 @@ extension DetailInfoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         if travel[indexPath.row].ad == false {
             let sb = UIStoryboard(name: "TouristAttraction", bundle: nil)
             
@@ -248,9 +257,18 @@ extension DetailInfoViewController: UITableViewDelegate, UITableViewDataSource {
             
             present(nav, animated: true)
         }
-        
-        
         tableView.reloadRows(at: [indexPath], with: .fade)
+    }
+    
+    func configTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        let xib = UINib(nibName: "DetailInfoTableViewCell", bundle: nil)
+        tableView.register(xib, forCellReuseIdentifier: "DetailInfoTableViewCell")
+        
+        let xib2 = UINib(nibName: "ADTableViewCell", bundle: nil)
+        tableView.register(xib2, forCellReuseIdentifier: "ADTableViewCell")
     }
 
 }
