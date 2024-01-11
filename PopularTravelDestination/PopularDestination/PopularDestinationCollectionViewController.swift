@@ -17,6 +17,10 @@ struct City {
 }
 
 class PopularDestinationCollectionViewController: UIViewController, UIConfiguration {
+    
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     // protocol 적용
     func configureView() {
         view.backgroundColor = .white
@@ -101,6 +105,20 @@ extension PopularDestinationCollectionViewController: UICollectionViewDelegate, 
         cell.cityExplainLabel.numberOfLines = 2
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let sb = UIStoryboard(name: "DetailInfo", bundle: nil)
+        
+        // 2. 전환하고자 하는 viewcontroller 찾기
+        let vc = sb.instantiateViewController(withIdentifier: "DetailInfoViewController") as! DetailInfoViewController
+        
+        // 3. 화면 방식을 선택 후 전환: push - pop
+        navigationController?.pushViewController(vc, animated: true)
+        
+        // select 상태를 풀고 싶을 때
+//        collectionView.reloadRows(at: [indexPath], with: .fade)
     }
 }
 
