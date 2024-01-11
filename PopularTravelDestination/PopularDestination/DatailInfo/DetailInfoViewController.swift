@@ -152,6 +152,7 @@ class DetailInfoViewController: UIViewController {
     func configView() {
         navigationItem.title = "도시 상세 정보"
     }
+ 
 
 }
 

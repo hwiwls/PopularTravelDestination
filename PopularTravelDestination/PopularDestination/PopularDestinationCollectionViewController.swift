@@ -71,6 +71,14 @@ class PopularDestinationCollectionViewController: UIViewController, UIConfigurat
         
         popularDestCollectionView.delegate = self
         popularDestCollectionView.dataSource = self
+        
+        customLeftBarButtonItem()
+    }
+    
+    func customLeftBarButtonItem() {
+        let backBarButtonItem = UIBarButtonItem(title: "인기 도시", style: .plain, target: self, action: nil)
+            backBarButtonItem.tintColor = .black  // 색상 변경
+            self.navigationItem.backBarButtonItem = backBarButtonItem
     }
 }
 
