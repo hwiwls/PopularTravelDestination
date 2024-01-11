@@ -23,7 +23,7 @@ class PopularDestinationCollectionViewController: UIViewController, UIConfigurat
     
     // protocol 적용
     func configureView() {
-        view.backgroundColor = .white
+        setBackgroundColor()
         
         let xib = UINib(nibName: "PopularDestinationCollectionViewCell", bundle: nil) // 실제 파일 이름을 적어주어야 한다.
         popularDestCollectionView.register(xib, forCellWithReuseIdentifier: "PopularDestinationCVC")

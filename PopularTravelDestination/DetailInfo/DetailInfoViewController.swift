@@ -131,8 +131,7 @@ class DetailInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        view.backgroundColor = .white
+        setBackgroundColor()
         tableView.backgroundColor = .clear
         configView()
         configTableView()
