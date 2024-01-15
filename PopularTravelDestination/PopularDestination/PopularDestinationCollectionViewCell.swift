@@ -25,4 +25,19 @@ class PopularDestinationCollectionViewCell: UICollectionViewCell, CollectionView
         // Initialization code
     }
 
+    func configureCell(row: City) {
+        let url = URL(string: row.city_image)
+        imageView.kf.setImage(with: url)
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 80
+        
+        cityNameLabel.text = "\(row.city_name) | \(row.city_english_name)"
+        cityNameLabel.textColor = .black
+        cityNameLabel.font = .boldSystemFont(ofSize: 16)
+    
+        cityExplainLabel.text = row.city_explain
+        cityExplainLabel.textColor = .gray
+        cityExplainLabel.font = .systemFont(ofSize: 14)
+        cityExplainLabel.numberOfLines = 2
+    }
 }

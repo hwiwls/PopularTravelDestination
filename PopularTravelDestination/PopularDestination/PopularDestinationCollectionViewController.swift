@@ -66,7 +66,6 @@ class PopularDestinationCollectionViewController: UIViewController, UIConfigurat
         }
     }
     
-    
     // protocol 적용
     func configureView() {
         setBackgroundColor()
@@ -100,6 +99,9 @@ class PopularDestinationCollectionViewController: UIViewController, UIConfigurat
         
         popularDestCollectionView.delegate = self
         popularDestCollectionView.dataSource = self
+        
+        searchBar.delegate = self
+        searchBar.showsCancelButton = true
         
         customLeftBarButtonItem()
     }
@@ -145,13 +147,53 @@ class PopularDestinationCollectionViewController: UIViewController, UIConfigurat
         
         popularDestCollectionView.reloadData()
     }
+}
+
+extension PopularDestinationCollectionViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        var filterData: [City] = []
+        
+        if searchBar.text == "" {
+            reloadedData = originalData
+        } else {
+            for item in originalData {
+                if item.city_name.contains(searchBar.text!) || item.city_english_name.contains(searchBar.text!) || item.city_explain.contains(searchBar.text!) {
+                    filterData.append(item)
+                }
+            }
+            reloadedData = filterData
+        }
+        popularDestCollectionView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        var filterData: [City] = []
+        
+        if searchBar.text == "" {
+            reloadedData = originalData
+        } else {
+            for item in originalData {
+                if item.city_name.contains(searchBar.text!) || item.city_english_name.contains(searchBar.text!) || item.city_explain.contains(searchBar.text!) {
+                    filterData.append(item)
+                }
+            }
+            reloadedData = filterData
+        }
+        popularDestCollectionView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        
+        reloadedData = originalData
+    }
     
     
     
 }
 
 // extension 적용
-extension PopularDestinationCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension PopularDestinationCollectionViewController: UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return reloadedData.count
     }
@@ -166,19 +208,7 @@ extension PopularDestinationCollectionViewController: UICollectionViewDelegate, 
 
         cell.backgroundColor = .white
         
-        let url = URL(string: reloadedData[indexPath.item].city_image)
-        cell.imageView.kf.setImage(with: url)
-        cell.imageView.contentMode = .scaleAspectFill
-        cell.imageView.layer.cornerRadius = 80
-        
-        cell.cityNameLabel.text = "\(reloadedData[indexPath.item].city_name) | \(reloadedData[indexPath.item].city_english_name)"
-        cell.cityNameLabel.textColor = .black
-        cell.cityNameLabel.font = .boldSystemFont(ofSize: 16)
-    
-        cell.cityExplainLabel.text = reloadedData[indexPath.item].city_explain
-        cell.cityExplainLabel.textColor = .gray
-        cell.cityExplainLabel.font = .systemFont(ofSize: 14)
-        cell.cityExplainLabel.numberOfLines = 2
+        cell.configureCell(row: reloadedData[indexPath.row])
         
         return cell
     }
