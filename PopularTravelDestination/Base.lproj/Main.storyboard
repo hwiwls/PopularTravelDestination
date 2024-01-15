@@ -55,7 +55,7 @@
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wsg-x0-9Fz">
-                                <rect key="frame" x="20" y="135" width="353" height="32"/>
+                                <rect key="frame" x="20" y="180" width="353" height="32"/>
                                 <segments>
                                     <segment title="모두"/>
                                     <segment title="국내"/>
@@ -63,7 +63,7 @@
                                 </segments>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BSI-JH-pkc">
-                                <rect key="frame" x="0.0" y="181" width="393" height="671"/>
+                                <rect key="frame" x="0.0" y="226" width="393" height="626"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yAo-Ng-g79">
                                     <size key="itemSize" width="128" height="128"/>
@@ -83,13 +83,26 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ePx-DU-W4g">
+                                <rect key="frame" x="0.0" y="120" width="393" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="0ue-vi-Pj3"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Gsb-G1-YjX"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ePx-DU-W4g" firstAttribute="top" secondItem="d7H-KV-WAe" secondAttribute="bottom" id="2Jr-Wb-vWe"/>
                             <constraint firstItem="BSI-JH-pkc" firstAttribute="top" secondItem="wsg-x0-9Fz" secondAttribute="bottom" constant="15" id="6Hw-Nd-ux0"/>
                             <constraint firstItem="d7H-KV-WAe" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="773-u3-fvy"/>
-                            <constraint firstItem="wsg-x0-9Fz" firstAttribute="top" secondItem="d7H-KV-WAe" secondAttribute="bottom" constant="15" id="BIS-i1-sMs"/>
+                            <constraint firstItem="wsg-x0-9Fz" firstAttribute="top" secondItem="d7H-KV-WAe" secondAttribute="bottom" constant="60" id="BIS-i1-sMs"/>
+                            <constraint firstItem="ePx-DU-W4g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GM1-Y9-nVk"/>
+                            <constraint firstItem="ePx-DU-W4g" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HNv-GZ-Yml"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wsg-x0-9Fz" secondAttribute="trailing" constant="20" id="U77-Zd-7sV"/>
                             <constraint firstItem="d7H-KV-WAe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Umd-QQ-6yQ"/>
                             <constraint firstItem="wsg-x0-9Fz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="dKh-5E-00e"/>
@@ -101,8 +114,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="BUh-aG-oW7"/>
                     <connections>
-                        <outlet property="collectionView" destination="BSI-JH-pkc" id="nyU-wt-k1o"/>
                         <outlet property="popularDestCollectionView" destination="BSI-JH-pkc" id="qUH-DM-f67"/>
+                        <outlet property="searchBar" destination="ePx-DU-W4g" id="4UX-wR-Y3w"/>
+                        <outlet property="segmentControl" destination="wsg-x0-9Fz" id="dE8-3E-DEY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
